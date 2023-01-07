@@ -1,0 +1,68 @@
+<div class="container">
+    <form [formGroup]="newForm" (ngSubmit)="addPerson(newForm.value)">
+        <div clas="form-group">
+            <label for="username">Username</label>
+            <input type="text"  formControlName="username" required placeholder="Username" class="form-control" id="username">
+        </div>
+        <div clas="form-group row">
+            <div class="col-4">
+                <label for="nombre">Name</label>
+                <input type="text"  formControlName="nombre" required placeholder="Name of person" class="form-control" id="nombre" autocomplete="off">   
+            </div>
+            <div class="col-4">
+                <label for="password">Password</label>
+                <input type="password"  formControlName="password" required placeholder="Password" class="form-control" id="password" autocomplete="off">
+            </div>
+            <div class="col-4">
+                <div>
+                    <label for="edad">Age</label>
+                    <input type="text"  formControlName="edad" required placeholder="Age of person" class="form-control" id="edad">
+                </div>
+            </div>
+        </div>
+        <div clas="form-group">
+            <label for="sexo">Gender</label>
+            <!--input type="text"  formControlName="sexo" required placeholder="Gender of person" class="form-control" id="sexo"-->
+            <select class="form-select" aria-label="Default select example" formControlName="sexo" id="sexo">
+                <option selected>Open this select menu</option>
+                <option value="Man">Man</option>
+                <option value="Woman">Woman</option>
+              </select>
+        </div>
+        <div clas="form-group">
+            <label for="latitud">Latitude</label>
+            <input type="text"  formControlName="latitud" required placeholder="Latitud of person" class="form-control" id="latitud">
+        </div>
+        <div clas="form-group">
+            <label for="longitud">Longitude</label>
+            <input type="number"  formControlName="longitud" required placeholder="Longitude of person" class="form-control" id="longitud">
+        </div>
+        <div clas="form-group">
+            <label for="agua">Water</label>
+            <input type="number"  formControlName="agua" required placeholder="" class="form-control" id="agua" required minlength="1">
+        </div>
+        <div clas="form-group">
+            <label for="comida">Food</label>
+            <input type="number"  formControlName="comida" required placeholder="" class="form-control" id="comida">
+        </div>
+        <div clas="form-group">
+            <label for="medicamento">Medication</label>
+            <input type="text"  formControlName="medicamento" required placeholder="" class="form-control" id="medicamento">
+        </div>
+        <div clas="form-group">
+            <label for="municion">Ammunition</label>
+            <input type="number"  formControlName="municion" required placeholder="" class="form-control" id="municion">
+        </div>
+        <div clas="form-group">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="admin" >
+            <label class="form-check-label" for="exampleCheck1">admin</label>
+        </div>
+        <div clas="form-group">
+            <input type="checkbox" class="form-check-input" id="infectado" formControlName="infectado" >
+            <label class="form-check-label" for="infectado">infected</label>
+        </div>
+        <br><br>
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="button" class="btn btn-dark" (click)="salir()">Salir</button>
+    </form>
+</div>

@@ -1,0 +1,76 @@
+<!-- Inventory-->
+<div class="container">
+    <h3>Inventory</h3>
+    <table class="table table-success table-striped-columns"  *ngIf="showResult">
+        <thead>
+            <tr>
+              <th scope="col">Water</th>
+              <th scope="col">Food</th>
+              <th scope="col">Medications</th>
+              <th scope="col">Ammunition</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{persona.agua}} ({{persona.agua*4}} Points)</td>
+              <td>{{persona.comida}} ({{persona.comida* 3}} Points)</td>
+              <td>{{persona.medicamento}} ({{persona.medicamento* 2}} Points)</td>
+              <td>{{persona.municion}} ({{persona.comida}} Points)</td>
+            </tr>
+          </tbody>
+    </table>
+</div>
+<!-- Update Location -->
+<div class="container">
+    <form [formGroup]="editForm" (ngSubmit)="updateUbication(editForm.value)">
+        <div clas="form-group">
+            <label for="latitud">Latitude</label>
+            <input type="text"  formControlName="latitud" required placeholder="Latitude of person" class="form-control" id="latitud">
+        </div>
+        <div clas="form-group">
+            <label for="longitud">Longitude</label>
+            <input type="number"  formControlName="longitud" required placeholder="Longitude of person" class="form-control" id="longitud">
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Update location</button>
+    </form>
+</div>
+
+<br><br>
+<!-- Trades-->
+<div class="container rounded">
+    <h3>New Trade</h3>
+    <br>
+    <div clas="form-group">        
+            <input type="text"  formControlName="sexo" required placeholder="Select a username" class="form-control">
+        <select class="form-select" aria-label="Default select example" id="usernameSolicitado">
+            <option *ngFor="let persona of personas" class="row" [value]="idSolicitarUsuario">{{persona.username}}</option>
+          </select>
+    </div>
+<br>
+<!-- Inbox Trades-->
+    <div class="container" *ngIf="showInbox">
+        <h3>Inbox</h3>
+        <br>
+        <table class="table table-success table-striped-columns"  *ngIf="showInbox">
+            <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Water</th>
+                  <th scope="col">Food</th>
+                  <th scope="col">Medications</th>
+                  <th scope="col">Ammunition</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let intercambio of intercambios">
+                  <td>{{intercambio.usernameSolicita}}</td>
+                  <td>{{intercambio.aguaSolicita}} ({{persona.agua*4}} Points)</td>
+                  <td>{{intercambio.comidaSolicita}} ({{persona.comida* 3}} Points)</td>
+                  <td>{{intercambio.medicamentoSolicita}} ({{persona.medicamento* 2}} Points)</td>
+                  <td>{{intercambio.municionSolicita}} ({{persona.comida}} Points)</td>
+                </tr>
+              </tbody>
+        </table>
+    </div>
+</div>

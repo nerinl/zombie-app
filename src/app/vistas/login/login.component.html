@@ -1,0 +1,23 @@
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+  
+      <!-- Icono -->
+      <div class="fadeIn first">
+        <img src="https://media.revistagq.com/photos/5ca5eff6815efb9ad7229e46/master/pass/zombies_enfermedad_ciervos_humanos_3901.jpg" id="icon" alt="User Icon" />
+      </div>
+  
+      <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm.value)">
+        <input type="text" id="login" class="fadeIn second" name="login" placeholder="login" formControlName="nombre">
+        <input type="text" id="password" class="fadeIn third" name="login" placeholder="password" formControlName="password">
+        <input type="submit" class="fadeIn fourth" value="Log In">
+      </form>
+
+      
+    <!-- Remind Passowrd -->
+    <div class="alert alert-danger" *ngIf="this.errorStatus" role="alert">
+        <p>{{errorMsj}}</p>
+      </div>
+  
+    </div>
+  </div>

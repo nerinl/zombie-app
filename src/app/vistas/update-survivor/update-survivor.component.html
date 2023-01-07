@@ -1,0 +1,42 @@
+<div class="container">
+        <form [formGroup]="editForm" (ngSubmit)="updatePerson(editForm.value)">
+            <div clas="form-group row">
+                <div class="col-6">
+                    <label for="nombre">Name</label>
+                    <input type="text"  formControlName="nombre" required placeholder="Name of person" class="form-control" id="nombre">   
+                </div>
+                <div class="col-6">
+                    <div>
+                        <label for="edad">Age</label>
+                        <input type="text"  formControlName="edad" required placeholder="Name of person" class="form-control" id="edad">
+                    </div>
+                </div>
+            </div>
+            <div clas="form-group">
+                <label for="sexo">Gender</label>
+                <input type="text"  formControlName="sexo" required placeholder="Name of person" class="form-control" id="sexo">
+            </div>
+            <div clas="form-group">
+                <label for="latitud">Latitude</label>
+                <input type="text"  formControlName="latitud" required placeholder="Name of person" class="form-control" id="latitud">
+            </div>
+            <div clas="form-group">
+                <label for="longitud">Longitude</label>
+                <input type="number"  formControlName="longitud" required placeholder="Name of person" class="form-control" id="longitud">
+            </div>
+            <div clas="form-group">
+            </div>
+            <div clas="form-group">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="admin" >
+                <label class="form-check-label" for="exampleCheck1">admin</label>
+            </div>
+            <div clas="form-group">
+                <input type="checkbox" class="form-check-input" id="infectado" formControlName="infectado" >
+                <label class="form-check-label" for="infectado">infected</label>
+            </div>
+            <br><br>
+            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="button" class="btn btn-danger" (click)="deletePerson()">Delete</button>
+            <button type="button" class="btn btn-dark" (click)="salir()">Salir</button>
+        </form>
+</div>

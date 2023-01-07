@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Persona, PersonasService } from './services/personas.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'zombie-app';
+
+  constructor(
+    private personaService:PersonasService
+  )
+  {
+    
+  }
 }

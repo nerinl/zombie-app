@@ -1,0 +1,62 @@
+<div class="container" *ngIf="usu1&&usu2" style="display: flex; justify-content: space-around;">
+    <div>
+        <form [formGroup]="newTrade" (ngSubmit)="sendTrade(newTrade.value)">
+            <div clas="form-group">
+                <label for="usernameSolicita">Username</label>
+                <input type="text"  formControlName="usernameSolicita" placeholder="Username" class="form-control" id="usernameSolicita">
+            </div>
+            <div clas="form-group ">
+                    <label for="nombre">Name</label>
+                    <input type="text"  formControlName="nombreSolicita" required placeholder="Name of person" class="form-control" id="nombre" autocomplete="off">   
+            </div>
+            <div clas="form-group">
+                <label for="agua">Water</label>
+                <input type="number"  formControlName="aguaSolicita" required placeholder="" class="form-control" id="agua" required minlength="1">
+            </div>
+            <div clas="form-group">
+                <label for="comida">Food</label>
+                <input type="number"  formControlName="comidaSolicita" required placeholder="" class="form-control" id="comida">
+            </div>
+            <div clas="form-group">
+                <label for="medicamento">Medication</label>
+                <input type="text"  formControlName="medicamentoSolicita" required placeholder="" class="form-control" id="medicamento">
+            </div>
+            <div clas="form-group">
+                <label for="municion">Ammunition</label>
+                <input type="number"  formControlName="municionSolicita" required placeholder="" class="form-control" id="municion">
+            </div>
+            <br><br>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="button" class="btn btn-dark" (click)="salir()">Salir</button>
+        </form>
+    </div>
+    <div>
+        <form [formGroup]="newTrade" (ngSubmit)="sendTrade(newTrade.value)">
+            <div clas="form-group">
+                <label for="usernameSolicita">Username</label>
+                <input type="text"  formControlName="usernameSolicitado" placeholder="Username" class="form-control" id="usernameSolicita">
+            </div>
+            <div clas="form-group ">
+                    <label for="nombre">Name</label>
+                    <input type="text"  formControlName="nombreSolicitado" required placeholder="Name of person" class="form-control" id="nombre" autocomplete="off">   
+            </div>
+            <div clas="form-group">
+                <label for="agua">Water</label>
+                <input type="number"  formControlName="aguaSolicitado" required placeholder="" class="form-control" id="agua" required minlength="1">
+            </div>
+            <div clas="form-group">
+                <label for="comida">Food</label>
+                <input type="number"  formControlName="comidaSolicitado" required placeholder="" class="form-control" id="comida">
+            </div>
+            <div clas="form-group">
+                <label for="medicamento">Medication</label>
+                <input type="text"  formControlName="medicamentoSolicitado" required placeholder="" class="form-control" id="medicamento">
+            </div>
+            <div clas="form-group">
+                <label for="municion">Ammunition</label>
+                <input type="number"  formControlName="municionSolicitado" required placeholder="" class="form-control" id="municion">
+            </div>
+            <br><br>
+        </form>
+    </div>
+</div>

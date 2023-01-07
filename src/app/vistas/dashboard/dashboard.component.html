@@ -1,0 +1,85 @@
+<div class="container">
+  <h3>Reports</h3>
+  <table class="table table-success table-striped-columns"  *ngIf="showReport">
+      <thead>
+          <tr>
+            <th scope="col">Infected</th>
+            <th scope="col">Non-infected</th>
+            <th scope="col">%Infected</th>
+            <th scope="col">%non-infected</th>
+            <th scope="col">total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{informe.infectados}} </td>
+            <td>{{informe.noInfectados}} </td>
+            <td>{{informe.promedioInfectados}} </td>
+            <td>{{informe.promedioNoInfectados}}</td>
+            <td>{{informe.totalPersonas}}</td>
+          </tr>
+        </tbody>
+  </table>
+</div>
+
+<!-- Admin-->
+<div class="container" *ngIf="admin">
+    <h3>List of Persons</h3>
+    <button type="button" class="btn btn-primary" (click)="newPerson()">New Person</button>
+    <br><br>
+<table class="table table-dark table-striped table-hover" *ngIf="showResult">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Latitude</th>
+        <th scope="col">Longitude</th>
+        <th scope="col">Infected</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let persona of personas" >
+        <th scope="row" (click)="updatePerson(persona._id);">{{persona.nombre}}</th>
+        <td>{{persona.edad}}</td>
+        <td>{{persona.sexo}}</td>
+        <td>{{persona.latitud}}</td>
+        <td>{{persona.longitud}}</td>
+        <td>{{persona.infectado}}</td>
+        <th><button
+          type="button"
+          class="btn btn-rounded btn-sm fw-bold btn-danger" (click)="markInfected(persona._id)">
+          Infected
+        </button></th>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- No Admin-->
+<div class="container" *ngIf="!admin">
+  <h3>List of people to trade items</h3>
+  <br><br>
+<table class="table table-dark table-striped table-hover" *ngIf="showResult">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Age</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Latitude</th>
+      <th scope="col">Longitude</th>
+      <th scope="col">Infected</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let persona of personas" (click)="newTrade(persona._id);">
+      <th scope="row">{{persona.nombre}}</th>
+      <td>{{persona.edad}}</td>
+      <td>{{persona.sexo}}</td>
+      <td>{{persona.latitud}}</td>
+      <td>{{persona.longitud}}</td>
+      <td>{{persona.infectado}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
